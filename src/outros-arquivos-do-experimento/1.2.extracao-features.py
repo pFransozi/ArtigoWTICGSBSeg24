@@ -107,9 +107,9 @@ def load_apks_list(input_malware, input_goodware):
 
 def main():
 
-    dir_output = "../features/"
-    dir_goodware = "../apks/goodware/Features_files/"
-    dir_malware = "../apks/malware/Features_files"
+    dir_output = "../../features/"
+    dir_goodware = "../../apks/goodware/Features_files/"
+    dir_malware = "../../apks/malware/Features_files"
     chuck_size = 250
 
 
