@@ -5,7 +5,7 @@ import time
 from queue import Queue
 
 # API key para o download
-APIKEY = "a80072fba6c47665cbcf1e4c37e9d55e04f3fa13d7c772af4ba37b97a65b4226"
+APIKEY = ""
 
 # Caminhos para os arquivos de hash
 GOODWARE_FILE = "../apks/0.lista-apk-goodware.txt"
