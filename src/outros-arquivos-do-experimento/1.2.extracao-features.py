@@ -5,6 +5,12 @@ import pandas as pd
 import threading
 
 
+# Este script extrai as três views utilizadas em nossa pesquisa. As views são: opcodes, apicalls, permissões. 
+# Essas views são extraídas dos arquivos de features resultantes do processo de extração da ferramenta AndroidPyTool
+#
+#
+
+
 def get_goodware_class():
     return 0
 
@@ -42,6 +48,11 @@ def generate_permission_dict(json_permission):
     return perm_dict
 
 
+# Recebe uma lista de features de apk, resultado do AndroPyTool.abs
+# Para cada arquivo de feature, outros três são gerados:
+# analysis-opcodes.csv -> armazena as características opcodes de uma apk;
+# analysis-apicalls -> armazena as características apicalls de uma apk;
+# analysis-permissions -> armazena as características permissions de uma apk;
 def process_features(output_csv, apk_features_list):
 
     for apk_info in apk_features_list:
@@ -108,8 +119,8 @@ def load_apks_list(input_malware, input_goodware):
 def main():
 
     dir_output = "../../features/"
-    dir_goodware = "../../apks/goodware/Features_files/"
-    dir_malware = "../../apks/malware/Features_files"
+    dir_goodware = "../../apks/goodware/Features_files/" # diretório onde AndroPyTool exporta as features de cada APKS;
+    dir_malware = "../../apks/malware/Features_files"    # diretório onde AndroPyTool exporta as features de cada APKS;
     chuck_size = 250
 
 
