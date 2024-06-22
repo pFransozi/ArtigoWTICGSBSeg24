@@ -8,7 +8,7 @@ hash_list = []
 
 def download_and_save_apk(hash256_list, apk_class):
 
-    apk_dir = "./goodware/" if apk_class == 0 else "./malware/"
+    apk_dir = "../../apks/goodware/" if apk_class == 0 else "../../apks/malware/"
     api_key = ""
     
     for hash in hash256_list:
@@ -44,7 +44,7 @@ for df in pd.read_csv("./latest.csv", iterator=True, chunksize=10_000):
                     (df['apk_size'] > 500_001) & (df['apk_size'] < 80_000_001)]
 
     hash256_goodware += df.query('vt_detection == 0')['sha256'].to_list()
-    hash256_malware += df.query('vt_detection > 0')['sha256'].to_list()
+    hash256_malware += df.query('vt_detection > 1')['sha256'].to_list()
 
 random.seed(random_seed)
 hash256_goodware = random.choices(hash256_goodware, k=apk_list_size)
