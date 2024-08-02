@@ -18,7 +18,7 @@ Este repositório está atrelado ao artigo "Seleção de Características Multi-
   * `./apks/0.lista-apk-goodware.txt`: lista dos arquivos APK, classificados como goodware, identificados pelo hash. O hash do arquivo pode ser utilizado para download do arquivo na plataforma *AndroZoo* e para consultar o arquivo na plataforma *VirusTotal*;
   * `./apks/0.lista-apk-malware.txt`: lista dos arquivos APK, classificados como malware, identificados pelo hash. O hash do arquivo pode ser utilizado para download do arquivo na plataforma *AndroZoo* e para consultar o arquivo na plataforma *VirusTotal*;
 * `./csv/`: armazena arquivos cvs utilizados na criação dos datasets para cada view (*API Calls*, *Opcodes*, Permissões). Esses arquivos não serão utilizados na reprodução do experimento por conta da inviabilidade de tempo;
-* `./dumps/`: armazena arquivos do tipo `pkl`, que são *dumps* de algumas etapas do experimento. Eles são utilizados para torna a reprodução do experimento viável em relação ao tempo de processamento;
+* `./dumps/`: armazena arquivos do tipo `pkl`, que são *dumps* de algumas etapas do experimento. Eles são utilizados para tornar a reprodução do experimento viável em relação ao tempo de processamento. No entanto, em virtude do tamanho dos arquivos, foi disponibilizado o vetor com os resultados em formato `npy`.
 * `./features/`: armazena arquivos intermediários, que são gerados a partir da extração das *features* dos arquivos APK e são utilizados na geração do csv; Esses arquivos não serão utilizados na reprodução do experimento por conta da inviabilidade de tempo;
 * `./npy/`: armazena arquivos do tipo *numpy* (`ndarray`), os quais são utilizados para reduzir requisitos de processamento e tempo em algumas etapas do experimento. Eles são utilizados para torna a reprodução do experimento viável em relação ao tempo de processamento;
 * `./src/`: armazena todos os códigos fontes utilizados no experimento, dentre esses os códigos que devem ser utilizados para reprodução do experimento;
@@ -42,10 +42,10 @@ O experimento utilizou VSCode v.1.88.1, Python v.3.10.12. Após esses requesitos
 
 Alguns arquivos foram criados para viabilizar a reprodução do experimento por conta do elevado tempo de processamento de algumas etapas. Esses arquivos devem ser obtidos confome descrição abaixo:
 
-* *dumps nsga*: são os resultados do processamento dos algoritmos genéticos e necessários para obtenção dos resultados do artigo. Eles são obtidos por este [endereço](https://drive.google.com/drive/folders/16FYWyABO8tkfICOiYFGg4mxQzEKKAEmI?usp=sharing) e devem ser descompactados e salvos no diretório `./dumps/`. O resultado esperado são 3 arquivos, conforme descrito abaixo:
-  * `./dumps/nsga2-maj-vot-dt.pkl`
-  * `./dumps/nsga2-maj-vot-knn.pkl`
-  * `./dumps/nsga2-maj-vot-rf.pkl`
+* *dumps nsga*: são os resultados do processamento dos algoritmos genéticos e necessários para obtenção dos resultados do artigo. Eles são obtidos por este [endereço](https://drive.google.com/drive/folders/1tLD21KOZFV4duZ9NzbxnwammLwgF3Oeg?usp=sharing) e devem ser salvos no diretório `./dumps/`. O resultado esperado são 3 arquivos, conforme descrito abaixo:
+  * `./dumps/nsga2-maj-vot-dt.npy`
+  * `./dumps/nsga2-maj-vot-knn.npy`
+  * `./dumps/nsga2-maj-vot-rf.npy`
 * numpy: são arquivos necessários para execução dos classificadores e necessários para obtenção dos resultados do artigo. Eles são obtidos por este [endereço](https://drive.google.com/drive/folders/1Dj_pOtJYFZLC3iMr_8QdbYqgIddE_TpI?usp=sharing) e devem ser descompadctados e salvos no diretório `./npy/`. O resultado esperado são 6 arquivos, conforme descrito abaixo:
   * `./npy/apicalls-x-pca-ordered.npy`
   * `./npy/apicalls-y-full-ordered.npy`
@@ -55,8 +55,6 @@ Alguns arquivos foram criados para viabilizar a reprodução do experimento por 
   * `./npy/perm-y-full-ordered.npy`
 
 **Os arquivos citados acima são necessários para reprodução do experimento**. 
-
-**Eles exigem cerca de 35 gigabytes de armazenamento em disco.**
 
 Caso seja do interesse, para verificação de outras etapas do experimento, estão disponíveis para download os seguintes arquivos:
 * csv: arquivos utilizados para criação dos datasets. Eles são gerados a partir das características extraídas dos arquivos APK. Podem ser obtidos no [endereço](https://drive.google.com/drive/folders/1DG86vQtehV0HNjjFT1ivaf6HijDWqzFF?usp=sharing) e podem ser salvos no diretório `./csv/`;
